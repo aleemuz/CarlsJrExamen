@@ -64,7 +64,7 @@ public class Busqueda extends javax.swing.JInternalFrame {
         
         String[] datos;
         
-        try{
+        /*try{
 
             String sql;
             PreparedStatement consulta;
@@ -89,7 +89,7 @@ public class Busqueda extends javax.swing.JInternalFrame {
             }
         }catch(Exception ex){
             ex.printStackTrace();
-        }
+        }*/
 
        tabla.setModel(model);  
                  

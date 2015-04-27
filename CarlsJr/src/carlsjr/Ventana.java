@@ -252,7 +252,7 @@ public class Ventana extends javax.swing.JFrame{
        String contraseña= txtContraseña.getText();
        
        if(!ID.trim().isEmpty()){
-             String sql = " UPDATE empleados SET clave_de_empleado=?, nombre_del_empleado=?, direccion=?, email=?, telefono=?, usuario=?, contraseña=MD5(?) WHERE id=?";
+             String sql = " UPDATE Cliente SET clave=?, nombre_cliente=?, direccion=?, email=?, telefono=?, usuario=?, contraseña=MD5(?) WHERE id=?";
              
            try{
            
@@ -269,7 +269,7 @@ public class Ventana extends javax.swing.JFrame{
            
            consulta.execute();
            
-           JOptionPane.showMessageDialog(null, "El empleado se a actualizado correctamente");
+           JOptionPane.showMessageDialog(null, "El cliente se a actualizado correctamente");
            actualizaTabla();
            
        } catch (SQLException ex){
@@ -280,7 +280,7 @@ public class Ventana extends javax.swing.JFrame{
        
        else{       
        
-             String sql = " INSERT INTO empleados (clave_de_empleado, nombre_del_empleado, direccion, email, telefono, usuario, contraseña) VALUES (?,?,?,?,?,?,MD5(?))";
+             String sql = " INSERT INTO Cliente (clave, nombre_cliente, direccion, email, telefono, usuario, contraseña) VALUES (?,?,?,?,?,?,MD5(?))";
        
        try{
            
@@ -296,7 +296,7 @@ public class Ventana extends javax.swing.JFrame{
            
            consulta.execute();
            
-           JOptionPane.showMessageDialog(null, "El empleado se a registrado correctamente");
+           JOptionPane.showMessageDialog(null, "El cliente se a registrado correctamente");
            
        } catch (SQLException ex){
            Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
@@ -317,11 +317,11 @@ public class Ventana extends javax.swing.JFrame{
        
         String ID = txtID.getText();
         
-        int respuesta = JOptionPane.showConfirmDialog(null,"Seguro que desea eliminar el empleado con el ID: "+ID, "Eliminar", JOptionPane.YES_NO_OPTION);
+        int respuesta = JOptionPane.showConfirmDialog(null,"Seguro que desea eliminar al cliente con el ID: "+ID, "Eliminar", JOptionPane.YES_NO_OPTION);
         
         if(respuesta == JOptionPane.YES_OPTION){
             
-                String sql = "UPDATE empleados SET fecha_eliminado = NOW() WHERE id = ?";
+                String sql = "UPDATE Cliente SET fecha_eliminado = NOW() WHERE id = ?";
                 
                 try{
                 PreparedStatement consulta = cn.prepareStatement (sql); 
@@ -329,7 +329,7 @@ public class Ventana extends javax.swing.JFrame{
                 
                 consulta.execute();
                 
-                JOptionPane.showMessageDialog(null, "El empleado se a eliminado.");
+                JOptionPane.showMessageDialog(null, "El cliente se a eliminado.");
                 
                 actualizaTabla();                    
                 }catch(Exception ex){
@@ -355,7 +355,7 @@ public class Ventana extends javax.swing.JFrame{
                 
                 int id = Integer.parseInt(txtID.getText());
                 
-                String sql = "SELECT * FROM empleados WHERE ID = ?";
+                String sql = "SELECT * FROM Cliente WHERE ID = ?";
                 
                 PreparedStatement consulta = cn.prepareStatement (sql); 
                 
@@ -365,8 +365,8 @@ public class Ventana extends javax.swing.JFrame{
                 
                 if(rs.next()){
                     
-                    txtNombre.setText(rs.getString("nombre_del_empleado"));
-                    txtClave.setText(rs.getString("clave_de_empleado"));
+                    txtNombre.setText(rs.getString("nombre_cliente"));
+                    txtClave.setText(rs.getString("clave"));
                     txtDireccion.setText(rs.getString("direccion"));
                     txtEmail.setText(rs.getString("email"));
                     txtTelefono.setText(rs.getString("telefono"));
@@ -389,14 +389,14 @@ public class Ventana extends javax.swing.JFrame{
         conexion = new Conexion();
         cn = conexion.conectar();
                                
-        String sql="SELECT * FROM empleados WHERE fecha_eliminado IS NULL ";
+        String sql="SELECT * FROM Cliente WHERE fecha_eliminado IS NULL ";
         
         
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("nombre");
         model.addColumn("direccion");
         model.addColumn("telefono");
-        model.addColumn("clave de empleado");
+        model.addColumn("clave");
         model.addColumn("email");
         model.addColumn("usuario");
         model.addColumn("contraseña");      
@@ -411,10 +411,10 @@ public class Ventana extends javax.swing.JFrame{
             ResultSet rs = consulta.executeQuery(sql);
             while(rs.next()){
                 datos = new String [7];
-                datos [0] = rs.getString("nombre_del_empleado");
+                datos [0] = rs.getString("nombre_cliente");
                 datos [1] = rs.getString("direccion");
                 datos [2] = rs.getString("telefono");
-                datos [3] = rs.getString("clave_de_empleado");
+                datos [3] = rs.getString("clave");
                 datos [4] = rs.getString("email");
                 datos [5] = rs.getString("usuario");
                 datos [6] = rs.getString("contraseña");

@@ -260,7 +260,7 @@ public class Ventas extends javax.swing.JInternalFrame {
            return;
        }
        
-       String sql="SELECT * FROM productos WHERE id = ?";
+       String sql="SELECT * FROM Productos WHERE id = ?";
                 
         try{
             //Statement consulta =  cn.createStatement();

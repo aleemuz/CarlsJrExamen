@@ -178,11 +178,11 @@ public class BuscarProductos extends javax.swing.JFrame {
             ResultSet rs;
 
             if(condicion == null || condicion.isEmpty()){
-            sql = "SELECT * FROM productos";
+            sql = "SELECT * FROM Productos";
             consulta = cn.prepareStatement(sql);
             rs = consulta.executeQuery();
     }else{
-           sql = "SELECT * from productos where nombre_del_producto LIKE ? ";
+           sql = "SELECT * from Productos where nombre_producto LIKE ? ";
            consulta = cn.prepareStatement(sql);
            consulta.setString(1, "%"+condicion+"%");
            rs = consulta.executeQuery();
@@ -190,7 +190,7 @@ public class BuscarProductos extends javax.swing.JFrame {
                 while(rs.next()){
                 datos = new String [2];
                 datos [0] = rs.getString("id");
-                datos [1] = rs.getString("nombre_del_producto");
+                datos [1] = rs.getString("nombre_producto");
                
                 model.addRow(datos);
             }

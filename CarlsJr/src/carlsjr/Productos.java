@@ -212,7 +212,7 @@ public class Productos extends javax.swing.JFrame {
       
        
        if(!ID.trim().isEmpty()){
-             String sql = " UPDATE productos SET nombre_del_producto=?, precio_del_producto=?, existencias=? WHERE id=?";
+             String sql = " UPDATE productos SET nombre_producto=?, precio_producto=?, existencias=? WHERE id=?";
              
            try{
            
@@ -237,7 +237,7 @@ public class Productos extends javax.swing.JFrame {
        
        else{       
        
-             String sql = " INSERT INTO productos (nombre_del_producto,precio_del_producto,existencias) VALUES (?,?,?)";
+             String sql = " INSERT INTO productos (nombre_producto,precio_producto,existencias) VALUES (?,?,?)";
        
        try{
            
@@ -282,7 +282,7 @@ public class Productos extends javax.swing.JFrame {
                 
                 int id = Integer.parseInt(txtID.getText());
                 
-                String sql = "SELECT * FROM productos WHERE ID = ?";
+                String sql = "SELECT * FROM Productos WHERE ID = ?";
                 
                 PreparedStatement consulta = cn.prepareStatement (sql); 
                 
@@ -292,8 +292,8 @@ public class Productos extends javax.swing.JFrame {
                 
                 if(rs.next()){
                     
-                    txtProductos.setText(rs.getString("nombre_del_producto"));
-                    txtPrecio.setText(rs.getString("precio_del_producto"));
+                    txtProductos.setText(rs.getString("nombre_producto"));
+                    txtPrecio.setText(rs.getString("precio_producto"));
                     txtExistencia.setText(rs.getString("existencias"));                                                           
                     
                 } else {
@@ -311,7 +311,7 @@ public class Productos extends javax.swing.JFrame {
         conexion = new Conexion();
         cn = conexion.conectar();
                                
-        String sql="SELECT * FROM productos";
+        String sql="SELECT * FROM Productos";
         
         
         DefaultTableModel model = new DefaultTableModel();
@@ -331,8 +331,8 @@ public class Productos extends javax.swing.JFrame {
             while(rs.next()){
                 datos = new String [4];
                 datos [0] = rs.getString("id");
-                datos [1] = rs.getString("nombre_del_producto");
-                datos [2] = rs.getString("precio_del_producto");
+                datos [1] = rs.getString("nombre_producto");
+                datos [2] = rs.getString("precio_producto");
                 datos [3] = rs.getString("existencias");
                 
                 model.addRow(datos);

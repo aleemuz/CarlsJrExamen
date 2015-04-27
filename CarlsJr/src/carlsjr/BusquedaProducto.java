@@ -59,14 +59,14 @@ public class BusquedaProducto extends javax.swing.JInternalFrame {
 
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("id");
-        model.addColumn("nombre_del_producto");
-        model.addColumn("precio_del_producto");
+        model.addColumn("nombre_producto");
+        model.addColumn("precio_producto");
         model.addColumn("existencias");
   
         
         String[] datos;
         
-        try{
+        /*try{
 
             String sql;
             PreparedStatement consulta;
@@ -94,7 +94,7 @@ public class BusquedaProducto extends javax.swing.JInternalFrame {
                 
         }catch(Exception ex){
             ex.printStackTrace();
-        }
+        }*/
 
        tabla.setModel(model);  
                  
