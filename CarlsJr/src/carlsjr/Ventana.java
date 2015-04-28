@@ -389,7 +389,7 @@ public class Ventana extends javax.swing.JFrame{
         conexion = new Conexion();
         cn = conexion.conectar();
                                
-        String sql="SELECT * FROM Cliente WHERE fecha_eliminado IS NULL ";
+        String sql="SELECT * FROM Cliente ";
         
         
         DefaultTableModel model = new DefaultTableModel();
