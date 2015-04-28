@@ -315,7 +315,7 @@ public class Ventana extends javax.swing.JFrame{
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
        
-        String ID = txtID.getText();
+     /*   String ID = txtID.getText();
         
         int respuesta = JOptionPane.showConfirmDialog(null,"Seguro que desea eliminar al cliente con el ID: "+ID, "Eliminar", JOptionPane.YES_NO_OPTION);
         
@@ -336,7 +336,7 @@ public class Ventana extends javax.swing.JFrame{
                     ex.printStackTrace();
                 }
                
-        }
+        }*/
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
