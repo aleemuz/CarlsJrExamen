@@ -212,7 +212,7 @@ public class Productos extends javax.swing.JFrame {
       
        
        if(!ID.trim().isEmpty()){
-             String sql = " UPDATE productos SET nombre_producto=?, precio_producto=?, existencias=? WHERE id=?";
+             String sql = " UPDATE productos SET nombre_producto=?, precio_producto=?, existencia=? WHERE id=?";
              
            try{
            
@@ -237,7 +237,7 @@ public class Productos extends javax.swing.JFrame {
        
        else{       
        
-             String sql = " INSERT INTO productos (nombre_producto,precio_producto,existencias) VALUES (?,?,?)";
+             String sql = " INSERT INTO productos (nombre_producto,precio_producto,existencia) VALUES (?,?,?)";
        
        try{
            
@@ -294,7 +294,7 @@ public class Productos extends javax.swing.JFrame {
                     
                     txtProductos.setText(rs.getString("nombre_producto"));
                     txtPrecio.setText(rs.getString("precio_producto"));
-                    txtExistencia.setText(rs.getString("existencias"));                                                           
+                    txtExistencia.setText(rs.getString("existencia"));                                                           
                     
                 } else {
                     JOptionPane.showMessageDialog(null,"El id no es valido.");
@@ -318,7 +318,7 @@ public class Productos extends javax.swing.JFrame {
         model.addColumn("ID");
         model.addColumn("PRODUCTO");
         model.addColumn("PRECIO");
-        model.addColumn("EXISTENCIAS");        
+        model.addColumn("EXISTENCIA");        
         
        
         
@@ -333,7 +333,7 @@ public class Productos extends javax.swing.JFrame {
                 datos [0] = rs.getString("id");
                 datos [1] = rs.getString("nombre_producto");
                 datos [2] = rs.getString("precio_producto");
-                datos [3] = rs.getString("existencias");
+                datos [3] = rs.getString("existencia");
                 
                 model.addRow(datos);
             }
