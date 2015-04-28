@@ -24,7 +24,7 @@ public class Conexion {
     public Connection conectar(){
         try{    
             Class.forName("com.mysql.jdbc.Driver");
-            this.connection = DriverManager.getConnection("jdbc:mysql://localhost/tienda","root","");          
+            this.connection = DriverManager.getConnection("jdbc:mysql://localhost/Menu","root","");          
     }catch (Exception e){
         System.out.println(e.getMessage());
     }
